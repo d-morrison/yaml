@@ -47,7 +47,7 @@ read_yaml(
 - ...:
 
   Arguments to pass to
-  [`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md).
+  [`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md).
 
 ## Value
 
@@ -59,9 +59,9 @@ of length 1 is returned for single objects.
 ## Details
 
 This function is a convenient wrapper for
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md) and is
-a nicer alternative to
-[`yaml.load_file()`](https://r-yaml.r-lib.org/reference/yaml.load.md).
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md) and is a
+nicer alternative to
+[`yaml.load_file()`](https://yaml.r-lib.org/reference/yaml.load.md).
 
 You can specify a label to be prepended to error messages via the
 `error.label` argument. If `error.label` is missing, `read_yaml` will
@@ -79,9 +79,9 @@ libyaml: https://pyyaml.org/wiki/LibYAML
 
 ## See also
 
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md),
-[`write_yaml()`](https://r-yaml.r-lib.org/reference/write_yaml.md),
-[`yaml.load_file()`](https://r-yaml.r-lib.org/reference/yaml.load.md)
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md),
+[`write_yaml()`](https://yaml.r-lib.org/reference/write_yaml.md),
+[`yaml.load_file()`](https://yaml.r-lib.org/reference/yaml.load.md)
 
 ## Author
 

@@ -134,7 +134,7 @@ YAML merge specification: http://yaml.org/type/merge.html
 
 ## See also
 
-[`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md)
+[`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md)
 
 ## Author
 

@@ -62,8 +62,8 @@ as.yaml(
 ## Value
 
 Returns a YAML string which can be loaded using
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md) or
-copied into a file for external use.
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md) or copied
+into a file for external use.
 
 ## Details
 
@@ -73,7 +73,7 @@ of each column is a key. If FALSE, the data frame is converted into a
 sequence of maps, where each element in the sequence is a row. You'll
 probably almost always want to leave this as TRUE (which is the
 default), because using
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md) on the
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md) on the
 resulting string returns an object which is much more easily converted
 into a data frame via
 [`as.data.frame()`](https://rdrr.io/r/base/as.data.frame.html).
@@ -103,7 +103,7 @@ set a tag for an object that would be emitted as a YAML mapping (like a
 data frame or a named list), it will be applied to the mapping as a
 whole. Tags can be used in conjunction with YAML deserialization
 functions like
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md) via
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md) via
 custom handlers, however, if you set an internal tag on an incompatible
 data type (like “!seq 1.0”), errors will occur when you try to
 deserialize the document.
@@ -116,7 +116,7 @@ YAML omap type: http://yaml.org/type/omap.html
 
 ## See also
 
-[`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md)
+[`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md)
 
 ## Author
 

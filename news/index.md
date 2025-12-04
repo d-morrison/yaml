@@ -225,17 +225,17 @@ CRAN release: 2013-03-05
 CRAN release: 2013-01-18
 
 - Added `unicode` option to
-  [`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md) (bug
+  [`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md) (bug
   submissions by Gergely Daróczi and Aleksandar Blagotić).
 
 ## yaml 2.1.5
 
 CRAN release: 2012-11-15
 
-- Fixed [`yaml.load()`](https://r-yaml.r-lib.org/reference/yaml.load.md)
+- Fixed [`yaml.load()`](https://yaml.r-lib.org/reference/yaml.load.md)
   ignoring explicit quotes around strings (bug submitted by Jonas
   Zimmermann).
-- Fixed [`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md) not
+- Fixed [`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md) not
   quoting strings that need to be quoted.
 
 ## yaml 2.1.4
@@ -249,7 +249,7 @@ CRAN release: 2012-04-05
 
 CRAN release: 2012-01-31
 
-- Fixed [`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md)
+- Fixed [`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md)
   converting numeric vectors incorrectly (bug submitted by Markus
   Göker).
 

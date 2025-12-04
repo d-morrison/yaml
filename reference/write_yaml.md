@@ -30,7 +30,7 @@ write_yaml(x, file, fileEncoding = "UTF-8", ...)
 - ...:
 
   Arguments to
-  [`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md).
+  [`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md).
 
 ## Details
 
@@ -38,13 +38,13 @@ If `file` is a non-open connection, an attempt is made to open it and
 then close it after use.
 
 This function is a convenient wrapper around
-[`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md).
+[`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md).
 
 ## See also
 
-[`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md),
-[`read_yaml()`](https://r-yaml.r-lib.org/reference/read_yaml.md),
-[`yaml.load_file()`](https://r-yaml.r-lib.org/reference/yaml.load.md)
+[`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md),
+[`read_yaml()`](https://yaml.r-lib.org/reference/read_yaml.md),
+[`yaml.load_file()`](https://yaml.r-lib.org/reference/yaml.load.md)
 
 ## Author
 

@@ -534,9 +534,9 @@ using Docker, you can follow these instructions:
 ### Implicit tag discovery
 
 The algorithm used whenever there is no YAML tag explicitly provided is
-located in the [implicit.re](https://r-yaml.r-lib.org/src/implicit.re)
+located in the [implicit.re](https://yaml.r-lib.org/src/implicit.re)
 file. This file is used to create the
-[implicit.c](https://r-yaml.r-lib.org/src/implicit.c) file via the
+[implicit.c](https://yaml.r-lib.org/src/implicit.c) file via the
 [re2c](http://re2c.org/) program. If you want to change this algorithm,
 make your changes in `implicit.re`, not `implicit.c`. The `make` targets
 will automatically update the C file as needed, but you’ll need to have

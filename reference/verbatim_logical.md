@@ -23,12 +23,12 @@ Returns a vector of strings of either `true` or `false` of class
 ## Details
 
 Pass this function to
-[`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md) as part of
+[`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md) as part of
 the `handlers` argument list like `list(logical = verbatim_logical)`.
 
 ## See also
 
-[`as.yaml()`](https://r-yaml.r-lib.org/reference/as.yaml.md)
+[`as.yaml()`](https://yaml.r-lib.org/reference/as.yaml.md)
 
 ## Author
 

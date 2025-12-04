@@ -1,0 +1,5 @@
+# License
+
+    YEAR: 2008-2025
+    COPYRIGHT HOLDER: Vanderbilt University
+    ORGANIZATION: Vanderbilt University

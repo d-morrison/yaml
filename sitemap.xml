@@ -1,15 +1,15 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/LICENSE-text.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/news/index.html</loc></url>
-<url><loc>/reference/as.yaml.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/read_yaml.html</loc></url>
-<url><loc>/reference/verbatim_logical.html</loc></url>
-<url><loc>/reference/write_yaml.html</loc></url>
-<url><loc>/reference/yaml-package.html</loc></url>
-<url><loc>/reference/yaml.load.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/404.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/LICENSE-text.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/authors.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/index.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/news/index.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/as.yaml.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/index.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/read_yaml.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/verbatim_logical.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/write_yaml.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/yaml-package.html</loc></url>
+<url><loc>https://r-yaml.r-lib.org/reference/yaml.load.html</loc></url>
 </urlset>
 

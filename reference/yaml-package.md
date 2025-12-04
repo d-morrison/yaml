@@ -7,9 +7,9 @@ Implements the 'libyaml' 'YAML' 1.1 parser and emitter
 
 Useful links:
 
-- <https://github.com/r-lib/r-yaml/>
+- <https://yaml.r-lib.org>
 
-- <https://r-yaml.r-lib.org>
+- <https://github.com/r-lib/r-yaml/>
 
 - Report bugs at <https://github.com/lib/r-yaml/issues>
 

@@ -33,6 +33,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="articles/yaml.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
@@ -49,436 +50,61 @@
 </nav><div class="container template-home" id="container">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="r-yaml-package">R YAML package<a class="anchor" aria-label="anchor" href="#r-yaml-package"></a>
+<div class="page-header"><h1 id="yaml">yaml<a class="anchor" aria-label="anchor" href="#yaml"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>The R <a href="http://yaml.org" class="external-link">YAML</a> package implements the <a href="https://pyyaml.org/wiki/LibYAML" class="external-link">libyaml</a> YAML parser and emitter for R.</p>
-<div class="section level2">
-<h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
-</h2>
-<ul>
-<li><a href="#what-is-yaml">What is YAML?</a></li>
-<li><a href="#installation">Installation</a></li>
-<li>
-<a href="#usage">Usage</a>
-<ul>
-<li><a href="#yamlload">yaml.load</a></li>
-<li><a href="#yamlload_file">yaml.load_file</a></li>
-<li><a href="#read_yaml">read_yaml</a></li>
-<li><a href="#asyaml">as.yaml</a></li>
-<li><a href="#write_yaml">write_yaml</a></li>
-</ul>
-</li>
-<li><a href="#development">Development</a></li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="what-is-yaml">What is YAML?<a class="anchor" aria-label="anchor" href="#what-is-yaml"></a>
-</h2>
-<p>YAML is a human-readable markup language. With it, you can create easily readable documents that can be consumed by a variety of programming languages.</p>
-<div class="section level3">
-<h3 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
-</h3>
-<p>Hash of baseball teams per league:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>american<span class="sc">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="sc">-</span> Boston Red Sox</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="sc">-</span> Detroit Tigers</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="sc">-</span> New York Yankees</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>national<span class="sc">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="sc">-</span> New York Mets</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="sc">-</span> Chicago Cubs</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="sc">-</span> Atlanta Braves</span></code></pre></div>
-<p>Data dictionary specification:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">-</span> field<span class="sc">:</span> ID</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  description<span class="sc">:</span> primary identifier</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  type<span class="sc">:</span> integer</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  primary key<span class="sc">:</span> yes</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="sc">-</span> field<span class="sc">:</span> DOB</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  description<span class="sc">:</span> date of birth</span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  type<span class="sc">:</span> date</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  format<span class="sc">:</span> yyyy<span class="sc">-</span>mm<span class="sc">-</span>dd</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="sc">-</span> field<span class="sc">:</span> State</span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  description<span class="sc">:</span> state of residence</span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  type<span class="sc">:</span> string</span></code></pre></div>
-</div>
-</div>
+<p>yaml provides R bindings to <a href="https://pyyaml.org/wiki/LibYAML" class="external-link">libyaml</a>, a fast <a href="http://yaml.org" class="external-link">YAML</a> parser and emitter.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<div class="section level3">
-<h3 id="cran">CRAN<a class="anchor" aria-label="anchor" href="#cran"></a>
-</h3>
-<p>You can install this package directly from CRAN by running (from within R): <code>install.packages('yaml')</code></p>
-</div>
-<div class="section level3">
-<h3 id="ziptarball">Zip/Tarball<a class="anchor" aria-label="anchor" href="#ziptarball"></a>
-</h3>
-<ol style="list-style-type: decimal">
-<li>Download the appropriate zip file or tar.gz file from the <a href="https://github.com/vubiostat/r-yaml/releases" class="external-link">Github releases</a> page.</li>
-<li>Run <code>R CMD INSTALL &lt;filename&gt;</code>
-</li>
-</ol>
-</div>
-<div class="section level3">
-<h3 id="git-via-devtools">Git (via devtools)<a class="anchor" aria-label="anchor" href="#git-via-devtools"></a>
-</h3>
-<ol style="list-style-type: decimal">
-<li>Install the <code>devtools</code> package from CRAN.</li>
-<li>In R, run the following: <code>R     library(devtools)     install_github('vubiostat/r-yaml')</code>
-</li>
-</ol>
-</div>
+<p>Install from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"yaml"</span><span class="op">)</span></span></code></pre></div>
+<p>Or install the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"r-lib/r-yaml"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>The <code>yaml</code> package provides three functions: <code>yaml.load</code>, <code>yaml.load_file</code> and <code>as.yaml</code>.</p>
-<div class="section level3">
-<h3 id="yamlload">yaml.load<a class="anchor" aria-label="anchor" href="#yamlload"></a>
-</h3>
-<p><code>yaml.load</code> is the YAML parsing function. It accepts a YAML document as a string. Here’s a simple example that parses a YAML sequence:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="st">- 1</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="st">- 2</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="st">- 3</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">yaml.load</span>(x)  <span class="co">#=&gt; [1] 1 2 3</span></span></code></pre></div>
-<div class="section level4">
-<h4 id="scalars">Scalars<a class="anchor" aria-label="anchor" href="#scalars"></a>
-</h4>
-<p>A YAML scalar is the basic building block of YAML documents. Example of a YAML document with one element:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fl">1.2345</span></span></code></pre></div>
-<p>In this case, the scalar “1.2345” is typed as a <code>float</code> (or numeric) by the parser. <code>yaml.load</code> would return a numeric vector of length 1 for this document.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">yaml.load</span>(<span class="st">"1.2345"</span>)  <span class="co">#=&gt; [1] 1.2345</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="sequences">Sequences<a class="anchor" aria-label="anchor" href="#sequences"></a>
-</h4>
-<p>A YAML sequence is a list of elements. Here’s an example of a simple YAML sequence:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">-</span> this</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="sc">-</span> is</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="sc">-</span> a</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="sc">-</span> simple</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="sc">-</span> sequence</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="sc">-</span> of</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="sc">-</span> scalars</span></code></pre></div>
-<p>If you pass a YAML sequence to <code>yaml.load</code>, a couple of things can happen. If all of the elements in the sequence are uniform, <code>yaml.load</code> will return a vector of that type (i.e. character, integer, real, or logical). If the elements are <em>not</em> uniform, <code>yaml.load</code> will return a list of the elements.</p>
-</div>
-<div class="section level4">
-<h4 id="maps">Maps<a class="anchor" aria-label="anchor" href="#maps"></a>
-</h4>
-<p>A YAML map is a list of paired keys and values, or hash, of elements. Here’s an example of a simple YAML map:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>one<span class="sc">:</span> <span class="dv">1</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>two<span class="sc">:</span> <span class="dv">2</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>three<span class="sc">:</span> <span class="dv">3</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>four<span class="sc">:</span> <span class="dv">4</span></span></code></pre></div>
-<p>Passing a map to <code>yaml.load</code> will produce a named list by default. That is, keys are coerced to strings. Since it is possible for the keys of a YAML map to be almost anything (not just strings), you might not want <code>yaml.load</code> to return a named list. If you want to preserve the data type of keys, you can pass <code>as.named.list = FALSE</code> to <code>yaml.load</code>. If <code>as.named.list</code> is FALSE, <code>yaml.load</code> will create a <code>keys</code> attribute for the list it returns instead of coercing the keys into strings.</p>
-</div>
-<div class="section level4">
-<h4 id="handlers">Handlers<a class="anchor" aria-label="anchor" href="#handlers"></a>
-</h4>
-<p><code>yaml.load</code> has the capability to accept custom handler functions. With handlers, you can customize <code>yaml.load</code> to do almost anything you want. Example of handler usage:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>integer.handler <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">as.integer</span>(x) <span class="sc">+</span> <span class="dv">123</span> }</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">yaml.load</span>(<span class="st">"123"</span>, <span class="at">handlers =</span> <span class="fu">list</span>(<span class="at">int =</span> integer.handler))  <span class="co">#=&gt; [1] 246</span></span></code></pre></div>
-<p>Handlers are passed to <code>yaml.load</code> through the <code>handlers</code> argument. The <code>handlers</code> argument must be a named list of functions, where each name is the YAML type that you want to be handled by your function. The functions you provide must accept one argument and must return an R object.</p>
-<p>Handler functions will be passed a string or list, depending on the original type of the object. In the example above, <code>integer.handler</code> was passed the string “123”.</p>
-<div class="section level5">
-<h5 id="sequence-handlers">Sequence handlers<a class="anchor" aria-label="anchor" href="#sequence-handlers"></a>
-</h5>
-<p>Custom sequence handlers will be passed a list of objects. You can then convert the list into whatever you want and return it. Example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>sequence.handler <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  tmp <span class="sc">/</span> <span class="dv">5</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>}</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>string <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="st">- foo</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="st">- bar</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="st">- 123</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="st">- 4.567</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="fu">yaml.load</span>(string, <span class="at">handlers =</span> <span class="fu">list</span>(<span class="at">seq =</span> sequence.handler))  <span class="co">#=&gt; [1]      NA      NA 24.6000  0.9134</span></span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="map-handlers">Map handlers<a class="anchor" aria-label="anchor" href="#map-handlers"></a>
-</h5>
-<p>Custom map handlers work much in the same way as custom list handlers. A map handler function is passed a named list, or a list with a <code>keys</code> attribute (depending on the value of <code>as.named.list</code>). Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>string <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="st">a:</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="st">- 1</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="st">- 2</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="st">b:</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="st">- 3</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="st">- 4</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">yaml.load</span>(string, <span class="at">handlers =</span> <span class="fu">list</span>(<span class="at">map =</span> <span class="cf">function</span>(x) { <span class="fu">as.data.frame</span>(x) }))</span></code></pre></div>
-<p>Returns:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>  a b</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1</span> <span class="dv">3</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2</span> <span class="dv">4</span></span></code></pre></div>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="yamlload_file">yaml.load_file<a class="anchor" aria-label="anchor" href="#yamlload_file"></a>
-</h3>
-<p><code>yaml.load_file</code> does the same thing as <code>yaml.load</code>, except it reads a file from a connection. For example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">yaml.load_file</span>(<span class="st">"Data/document.yml"</span>)</span></code></pre></div>
-<p>This function takes the same arguments as <code>yaml.load</code>, with the exception that the first argument is a filename or a connection.</p>
-</div>
-<div class="section level3">
-<h3 id="read_yaml">read_yaml<a class="anchor" aria-label="anchor" href="#read_yaml"></a>
-</h3>
-<p>The <code>read_yaml</code> function is a convenience function that works similarly to functions in the <a href="https://cran.r-project.org/package=readr" class="external-link">readr package</a>. You can use it instead of <code>yaml.load_file</code> if you prefer.</p>
-</div>
-<div class="section level3">
-<h3 id="asyaml">as.yaml<a class="anchor" aria-label="anchor" href="#asyaml"></a>
-</h3>
-<p><code>as.yaml</code> is used to convert R objects into YAML strings. Example <code>as.yaml</code> usage:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.yaml</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">cat</span>(x, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div>
-<p>Output from above example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="sc">-</span> <span class="dv">2</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="sc">-</span> <span class="dv">5</span></span></code></pre></div>
-<div class="section level4">
-<h4 id="notable-arguments">Notable arguments<a class="anchor" aria-label="anchor" href="#notable-arguments"></a>
-</h4>
-<div class="section level5">
-<h5 id="indent">indent<a class="anchor" aria-label="anchor" href="#indent"></a>
-</h5>
-<p>You can control the number of spaces used to indent by setting the <code>indent</code> option. By default, <code>indent</code> is 2.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">as.yaml</span>(<span class="fu">list</span>(<span class="at">foo =</span> <span class="fu">list</span>(<span class="at">bar =</span> <span class="st">'baz'</span>)), <span class="at">indent =</span> <span class="dv">3</span>))</span></code></pre></div>
-<p>Outputs:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>foo<span class="sc">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>   bar<span class="sc">:</span> baz</span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="indentmappingsequence">indent.mapping.sequence<a class="anchor" aria-label="anchor" href="#indentmappingsequence"></a>
-</h5>
-<p>By default, sequences that are within a mapping context are not indented.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">as.yaml</span>(<span class="fu">list</span>(<span class="at">foo =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span></code></pre></div>
-<p>Outputs:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>foo<span class="sc">:</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="sc">-</span> <span class="dv">2</span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="sc">-</span> <span class="dv">5</span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="sc">-</span> <span class="dv">6</span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="sc">-</span> <span class="dv">7</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="sc">-</span> <span class="dv">8</span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="sc">-</span> <span class="dv">9</span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="sc">-</span> <span class="dv">10</span></span></code></pre></div>
-<p>If you want sequences to be indented in this context, set the <code>indent.mapping.sequence</code> option to <code>TRUE</code>.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">as.yaml</span>(<span class="fu">list</span>(<span class="at">foo =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">indent.mapping.sequence=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<p>Outputs:</p>
-<pre><code><span><span class="va">foo</span><span class="op">:</span></span>
-<span>  <span class="op">-</span> <span class="fl">1</span></span>
-<span>  <span class="op">-</span> <span class="fl">2</span></span>
-<span>  <span class="op">-</span> <span class="fl">3</span></span>
-<span>  <span class="op">-</span> <span class="fl">4</span></span>
-<span>  <span class="op">-</span> <span class="fl">5</span></span>
-<span>  <span class="op">-</span> <span class="fl">6</span></span>
-<span>  <span class="op">-</span> <span class="fl">7</span></span>
-<span>  <span class="op">-</span> <span class="fl">8</span></span>
-<span>  <span class="op">-</span> <span class="fl">9</span></span>
-<span>  <span class="op">-</span> <span class="fl">10</span></span></code></pre>
-</div>
-<div class="section level5">
-<h5 id="columnmajor">column.major<a class="anchor" aria-label="anchor" href="#columnmajor"></a>
-</h5>
-<p>The <code>column.major</code> option determines how a data frame is converted into YAML. By default, <code>column.major</code> is TRUE.</p>
-<p>Example of <code>as.yaml</code> when <code>column.major</code> is TRUE:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b=</span><span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.yaml</span>(x, <span class="at">column.major =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="fu">cat</span>(y, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div>
-<p>Outputs:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>a<span class="sc">:</span></span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="sc">-</span> <span class="dv">2</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="sc">-</span> <span class="dv">5</span></span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>b<span class="sc">:</span></span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="sc">-</span> <span class="dv">6</span></span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="sc">-</span> <span class="dv">7</span></span>
-<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="sc">-</span> <span class="dv">8</span></span>
-<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="sc">-</span> <span class="dv">9</span></span>
-<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a><span class="sc">-</span> <span class="dv">10</span></span></code></pre></div>
-<p>Whereas:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">b=</span><span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.yaml</span>(x, <span class="at">column.major =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">cat</span>(y, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div>
-<p>Outputs:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="sc">-</span> a<span class="sc">:</span> <span class="dv">1</span></span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>  b<span class="sc">:</span> <span class="dv">6</span></span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="sc">-</span> a<span class="sc">:</span> <span class="dv">2</span></span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  b<span class="sc">:</span> <span class="dv">7</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="sc">-</span> a<span class="sc">:</span> <span class="dv">3</span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>  b<span class="sc">:</span> <span class="dv">8</span></span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="sc">-</span> a<span class="sc">:</span> <span class="dv">4</span></span>
-<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>  b<span class="sc">:</span> <span class="dv">9</span></span>
-<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="sc">-</span> a<span class="sc">:</span> <span class="dv">5</span></span>
-<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>  b<span class="sc">:</span> <span class="dv">10</span></span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="handlers-1">handlers<a class="anchor" aria-label="anchor" href="#handlers-1"></a>
-</h5>
-<p>You can specify custom handler functions via the <code>handlers</code> argument. This argument must be a named list of functions, where the names are R object class names (i.e., ‘numeric’, ‘data.frame’, ‘list’, etc). The function(s) you provide will be passed one argument (the R object) and can return any R object. The returned object will be emitted normally.</p>
-</div>
-<div class="section level5">
-<h5 id="yaml-12-ish-logical-handling">YAML 1.2(-ish) Logical Handling<a class="anchor" aria-label="anchor" href="#yaml-12-ish-logical-handling"></a>
-</h5>
-<p>To get YAML 1.2 like behavior for logical vectors, you can use the <code>verbatim_logical</code> handler function passed as the logical element of the handlers list.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/as.yaml.html">as.yaml</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span> , handlers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>logical<span class="op">=</span><span class="va">verbatim_logical</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level4">
-<h4 id="special-features">Special features<a class="anchor" aria-label="anchor" href="#special-features"></a>
-</h4>
-<div class="section level5">
-<h5 id="verbatim-ish-text">Verbatim(-ish) text<a class="anchor" aria-label="anchor" href="#verbatim-ish-text"></a>
-</h5>
-<p>Character vectors that have a class of <code>'verbatim'</code> will not be quoted in the output YAML document except when the YAML specification requires it. This means that you cannot do anything that would result in an invalid YAML document, but you can emit strings that would otherwise be quoted. This is useful for changing how logical vectors are emitted. For example:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/as.yaml.html">as.yaml</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, handlers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>  logical <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"true"</span>, <span class="st">"false"</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"verbatim"</span></span>
-<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="quoted-strings">Quoted Strings<a class="anchor" aria-label="anchor" href="#quoted-strings"></a>
-</h5>
-<p>There are times you might need to ensure a string scalar is quoted. Apply a non-null attribute of “quoted” to the string you need quoted and it will come out with double quotes around it.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">port_def</span> <span class="op">&lt;-</span> <span class="st">"80:80"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">port_def</span>, <span class="st">"quoted"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ports <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">port_def</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/as.yaml.html">as.yaml</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="custom-tags">Custom tags<a class="anchor" aria-label="anchor" href="#custom-tags"></a>
-</h5>
-<p>You can specify YAML tags for R objects by setting the <code>'tag'</code> attribute to a character vector of length 1. If you set a tag for a vector, the tag will be applied to the YAML sequence as a whole, unless the vector has only 1 element. If you wish to tag individual elements, you must use a list of 1-length vectors, each with a tag attribute. Likewise, if you set a tag for an object that would be emitted as a YAML mapping (like a data frame or a named list), it will be applied to the mapping as a whole. Tags can be used in conjunction with YAML deserialization functions like <code>yaml.load</code> via custom handlers, however, if you set an internal tag on an incompatible data type (like <code>!seq 1.0</code>), errors will occur when you try to deserialize the document.</p>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="write_yaml">write_yaml<a class="anchor" aria-label="anchor" href="#write_yaml"></a>
-</h3>
-<p>The <code>write_yaml</code> function is a convenience function that works similarly to functions in the <a href="https://cran.r-project.org/package=readr" class="external-link">readr package</a>. It calls <code>as.yaml</code> and writes the result to a file or a connection.</p>
-</div>
-<div class="section level3">
-<h3 id="additional-documentation">Additional documentation<a class="anchor" aria-label="anchor" href="#additional-documentation"></a>
-</h3>
-<p>For more information, run <code><a href="https://rdrr.io/pkg/yaml/man" class="external-link">help(package='yaml')</a></code> or <code>example('yaml-package')</code> for some examples.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="development">Development<a class="anchor" aria-label="anchor" href="#development"></a>
-</h2>
-<p>There is a <code>Makefile</code> for use with <a href="https://www.gnu.org/software/make/" class="external-link">GNU Make</a> to help with development. There are several <code>make</code> targets for building, debugging, and testing. You can run these by executing <code>make &lt;target-name&gt;</code> if you have the <code>make</code> program installed.</p>
-<table class="table">
-<thead><tr class="header">
-<th>Target name</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code>compile</code></td>
-<td>Compile the source files</td>
-</tr>
-<tr class="even">
-<td><code>check</code></td>
-<td>Run CRAN checks</td>
-</tr>
-<tr class="odd">
-<td><code>gct-check</code></td>
-<td>Run CRAN checks with gctorture</td>
-</tr>
-<tr class="even">
-<td><code>test</code></td>
-<td>Run unit tests</td>
-</tr>
-<tr class="odd">
-<td><code>gdb-test</code></td>
-<td>Run unit tests with gdb</td>
-</tr>
-<tr class="even">
-<td><code>valgrind-test</code></td>
-<td>Run unit tests with valgrind</td>
-</tr>
-<tr class="odd">
-<td><code>tarball</code></td>
-<td>Create tarball suitable for CRAN submission</td>
-</tr>
-<tr class="even">
-<td><code>all</code></td>
-<td>Default target, runs <code>compile</code> and <code>test</code>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="section level3">
-<h3 id="local-development-and-testing-in-docker">Local development and testing in Docker<a class="anchor" aria-label="anchor" href="#local-development-and-testing-in-docker"></a>
-</h3>
-<p>If you’d like to set up a local development and testing environment using Docker, you can follow these instructions:</p>
-<ul>
-<li>clone the repository</li>
-</ul>
-<pre><code>git clone git@github.com:vubiostat/r-yaml.git
-cd r-yaml</code></pre>
-<ul>
-<li>Start Docker container called r-yaml</li>
-</ul>
-<pre><code>docker run -it --name r-yaml --workdir /opt -v$(pwd):/opt r-base:4.2.3 bash</code></pre>
-<ul>
-<li>Install external dependencies</li>
-</ul>
-<pre><code>apt-get update
-apt-get install -y texlive-latex-base texlive-fonts-extra texlive-latex-recommended texlive-fonts-recommended</code></pre>
-<ul>
-<li>Install RUint</li>
-</ul>
-<pre><code>Rscript -e 'install.packages("RUnit")'</code></pre>
-<ul>
-<li>Run the tests</li>
-</ul>
-<pre><code>make check
-make test</code></pre>
-<ul>
-<li>Exit from Docker container</li>
-</ul>
-<pre><code><span><span class="va">exit</span></span></code></pre>
-<ul>
-<li>Restart Docker container</li>
-</ul>
-<pre><code>docker container start -i r-yaml</code></pre>
-<ul>
-<li>Remove Docker container</li>
-</ul>
-<pre><code>docker rm r-yaml</code></pre>
-</div>
-<div class="section level3">
-<h3 id="implicit-tag-discovery">Implicit tag discovery<a class="anchor" aria-label="anchor" href="#implicit-tag-discovery"></a>
-</h3>
-<p>The algorithm used whenever there is no YAML tag explicitly provided is located in the <a href="src/implicit.re">implicit.re</a> file. This file is used to create the <a href="src/implicit.c">implicit.c</a> file via the <a href="http://re2c.org/" class="external-link">re2c</a> program. If you want to change this algorithm, make your changes in <code>implicit.re</code>, not <code>implicit.c</code>. The <code>make</code> targets will automatically update the C file as needed, but you’ll need to have the <code>re2c</code> program installed for it to work.</p>
-</div>
-<div class="section level3">
-<h3 id="version-file">VERSION file<a class="anchor" aria-label="anchor" href="#version-file"></a>
-</h3>
-<p>The <code>VERSION</code> file is used to track the current version of the package. Warnings are displayed if the <code>DESCRIPTION</code> and <code>CHANGELOG</code> files are not properly updated when creating a tarball. This is to help prevent problems during the CRAN submission process.</p>
-</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://yaml.r-lib.org">yaml</a></span><span class="op">)</span></span></code></pre></div>
+<p>Parse YAML with <code><a href="reference/yaml.load.html">yaml.load()</a></code> or <code><a href="reference/read_yaml.html">read_yaml()</a></code>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/yaml.load.html">yaml.load</a></span><span class="op">(</span></span>
+<span>  <span class="st">"</span></span>
+<span><span class="st">- 1</span></span>
+<span><span class="st">- 2</span></span>
+<span><span class="st">- 3</span></span>
+<span><span class="st">"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1 2 3</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/yaml.load.html">yaml.load</a></span><span class="op">(</span></span>
+<span>  <span class="st">"</span></span>
+<span><span class="st">a: 1</span></span>
+<span><span class="st">b: 2</span></span>
+<span><span class="st">"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; $a</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $b</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<p>Convert R objects to YAML with <code><a href="reference/as.yaml.html">as.yaml()</a></code> or <code><a href="reference/write_yaml.html">write_yaml()</a></code>:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="reference/as.yaml.html">as.yaml</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; a:</span></span>
+<span><span class="co">#&gt; - 1</span></span>
+<span><span class="co">#&gt; - 2</span></span>
+<span><span class="co">#&gt; - 3</span></span>
+<span><span class="co">#&gt; b:</span></span>
+<span><span class="co">#&gt; - 4</span></span>
+<span><span class="co">#&gt; - 5</span></span>
+<span><span class="co">#&gt; - 6</span></span></code></pre></div>
+<p>See <code><a href="articles/yaml.html">vignette("yaml")</a></code> for more details on handlers, formatting options, and advanced usage.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

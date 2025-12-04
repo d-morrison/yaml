@@ -1,6 +1,8 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://yaml.r-lib.org/404.html</loc></url>
 <url><loc>https://yaml.r-lib.org/LICENSE-text.html</loc></url>
+<url><loc>https://yaml.r-lib.org/articles/index.html</loc></url>
+<url><loc>https://yaml.r-lib.org/articles/yaml.html</loc></url>
 <url><loc>https://yaml.r-lib.org/authors.html</loc></url>
 <url><loc>https://yaml.r-lib.org/index.html</loc></url>
 <url><loc>https://yaml.r-lib.org/news/index.html</loc></url>

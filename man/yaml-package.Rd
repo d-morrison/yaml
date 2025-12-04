@@ -12,6 +12,7 @@ Implements the 'libyaml' 'YAML' 1.1 parser and emitter (\url{https://pyyaml.org/
 Useful links:
 \itemize{
   \item \url{https://github.com/r-lib/r-yaml/}
+  \item \url{https://r-yaml.r-lib.org}
   \item Report bugs at \url{https://github.com/lib/r-yaml/issues}
 }
 

@@ -1,0 +1,7 @@
+url: https://r-yaml.r-lib.org
+
+template:
+  package: tidytemplate
+  bootstrap: 5
+  in_header: |
+      <script defer data-domain="yaml.r-lib.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script> 

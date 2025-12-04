@@ -7,3 +7,4 @@ yaml_*.tar.gz
 *.so
 .Rproj.user
 *.Rproj
+docs

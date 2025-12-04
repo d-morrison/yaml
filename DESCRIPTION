@@ -25,11 +25,12 @@ Authors@R: c(
 Description: Implements the 'libyaml' 'YAML' 1.1 parser and emitter
     (<https://pyyaml.org/wiki/LibYAML>) for R.
 License: BSD_3_clause + file LICENSE
-URL: https://github.com/r-lib/r-yaml/
+URL: https://r-yaml.r-lib.org, https://github.com/r-lib/r-yaml/
 BugReports: https://github.com/lib/r-yaml/issues
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Config/Needs/website: tidyverse/tidytemplate
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

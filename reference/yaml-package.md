@@ -9,9 +9,9 @@ Useful links:
 
 - <https://yaml.r-lib.org>
 
-- <https://github.com/r-lib/r-yaml/>
+- <https://github.com/r-lib/yaml/>
 
-- Report bugs at <https://github.com/lib/r-yaml/issues>
+- Report bugs at <https://github.com/r-lib/yaml/issues>
 
 ## Author
 

@@ -22,7 +22,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/lib/r-yaml/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/r-lib/yaml/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -32,7 +32,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Convert an R object into a YAML string</h1>
-      <small class="dont-index">Source: <a href="https://github.com/lib/r-yaml/blob/main/R/as.yaml.R" class="external-link"><code>R/as.yaml.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/yaml/blob/main/R/as.yaml.R" class="external-link"><code>R/as.yaml.R</code></a></small>
       <div class="d-none name"><code>as.yaml.Rd</code></div>
     </div>
 
@@ -180,7 +180,7 @@ when you try to deserialize the document.</p>
 <span class="r-in"><span>  <span class="fu">as.yaml</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span>, handlers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    POSIXct <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"%Y-%m-%d"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "'2025-12-05'\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "'2025-12-08'\n"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># custom handler with verbatim output to change how logical vectors are</span></span></span>
 <span class="r-in"><span>  <span class="co"># emitted</span></span></span>

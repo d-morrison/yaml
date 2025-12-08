@@ -37,7 +37,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/lib/r-yaml/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/r-lib/yaml/blob/main/DESCRIPTION)
 
 Stephens J, Simonov K (2025). *yaml: Methods to Convert R Data to YAML
 and Back*. R package version 2.3.11.9000, <https://yaml.r-lib.org>.

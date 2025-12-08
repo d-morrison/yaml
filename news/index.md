@@ -51,7 +51,7 @@ CRAN release: 2022-02-17
 
 ## yaml 2.3.3
 
-- Fixed Bug [\#99](https://github.com/lib/r-yaml/issues/99), support for
+- Fixed Bug [\#99](https://github.com/r-lib/yaml/issues/99), support for
   `BUILTINSXP` functions as handlers.
 
 ## yaml 2.3.2
@@ -74,8 +74,8 @@ CRAN release: 2022-02-17
 ## yaml 2.2.3
 
 - Added attribute quote support for strings
-  ([\#72](https://github.com/lib/r-yaml/issues/72),
-  [\#109](https://github.com/lib/r-yaml/issues/109)).
+  ([\#72](https://github.com/r-lib/yaml/issues/72),
+  [\#109](https://github.com/r-lib/yaml/issues/109)).
 
 ## yaml 2.2.2
 

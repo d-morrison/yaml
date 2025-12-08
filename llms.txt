@@ -1,7 +1,7 @@
 # yaml
 
 yaml provides R bindings to [libyaml](https://pyyaml.org/wiki/LibYAML),
-a fast [YAML](http://yaml.org) parser and emitter.
+a fast [YAML](https://yaml.org/) parser and emitter.
 
 ## Installation
 

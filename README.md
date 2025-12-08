@@ -5,13 +5,13 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/r-lib/r-yaml/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/r-yaml/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/r-lib/yaml/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/yaml/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/r-yaml/graph/badge.svg)](https://app.codecov.io/gh/r-lib/r-yaml)
+coverage](https://codecov.io/gh/r-lib/yaml/graph/badge.svg)](https://app.codecov.io/gh/r-lib/yaml)
 <!-- badges: end -->
 
 yaml provides R bindings to [libyaml](https://pyyaml.org/wiki/LibYAML),
-a fast [YAML](http://yaml.org) parser and emitter.
+a fast [YAML](https://yaml.org/) parser and emitter.
 
 ## Installation
 

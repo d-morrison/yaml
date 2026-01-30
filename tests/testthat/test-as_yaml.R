@@ -479,3 +479,29 @@ test_that("no dots at end", {
   result <- yaml::as.yaml(list(eol = "\n", a = 1), line.sep = "\n")
   expect_equal(result, "eol: |2+\n\na: 1.0\n")
 })
+
+test_that("roundtrip with custom seq handler preserves structure", {
+  # Note: yaml.load() simplifies uniform single-element sequences to vectors,
+  # losing information about whether it was a sequence. To preserve roundtrip,
+  # use a custom seq handler that prevents simplification.
+  temp <- "website:
+  sidebar:
+    contents:
+      - section: Articles
+        contents:
+          - vignettes/getting-started.qmd
+          - vignettes/quarto_vignette.qmd
+          - section: Advanced
+            contents:
+              - vignettes/articles/quarto_article.qmd
+"
+  
+  # Load with custom handler to preserve list structure
+  loaded <- yaml.load(temp, handlers = list(seq = function(x) as.list(x)))
+  temp2 <- as.yaml(loaded, indent.mapping.sequence = TRUE)
+  
+  # The structure should be preserved (though format may differ slightly)
+  reloaded <- yaml.load(temp2, handlers = list(seq = function(x) as.list(x)))
+  expect_equal(reloaded, loaded)
+})
+

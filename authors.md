@@ -39,13 +39,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/r-lib/yaml/blob/main/DESCRIPTION)
 
-Stephens J, Simonov K (2025). *yaml: Methods to Convert R Data to YAML
+Stephens J, Simonov K (2026). *yaml: Methods to Convert R Data to YAML
 and Back*. R package version 2.3.11.9000, <https://yaml.r-lib.org>.
 
     @Manual{,
       title = {yaml: Methods to Convert R Data to YAML and Back},
       author = {Jeremy Stephens and Kirill Simonov},
-      year = {2025},
+      year = {2026},
       note = {R package version 2.3.11.9000},
       url = {https://yaml.r-lib.org},
     }

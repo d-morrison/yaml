@@ -497,7 +497,7 @@ test_that("roundtrip preserves single-element sequences with indent.mapping.sequ
     yaml.load() |>
     as.yaml(
       indent.mapping.sequence = TRUE,
-      handler = list(logical = verbatim_logical)
+      handlers = list(logical = verbatim_logical)
     )
   
   # Both should have the same YAML structure

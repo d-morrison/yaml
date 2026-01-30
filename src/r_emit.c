@@ -444,6 +444,7 @@ static int emit_object(
   int omap,
   int column_major,
   int precision,
+  int indent_mapping_sequence,
   SEXP s_handlers)
 {
   SEXP s_chr = NULL, s_names = NULL, s_elt = NULL, s_type = NULL,
@@ -551,7 +552,9 @@ static int emit_object(
       /* TODO: add complex and raw */
       len = length(s_obj);
 
-      if (len != 1) {
+      /* When indent_mapping_sequence is TRUE, always emit atomic vectors as sequences
+       * to preserve roundtrip fidelity. Otherwise, only emit as sequence when len > 1. */
+      if (len != 1 || indent_mapping_sequence) {
         /* Apply tag to sequence */
         tag_applied = 1;
         yaml_sequence_start_event_initialize(event, NULL, (yaml_char_t *)tag,
@@ -628,7 +631,8 @@ static int emit_object(
         }
       }
 
-      if (length(s_obj) != 1) {
+      /* Close sequence if we opened one */
+      if (length(s_obj) != 1 || indent_mapping_sequence) {
         yaml_sequence_end_event_initialize(event);
         result = yaml_emitter_emit(emitter, event);
       }
@@ -672,7 +676,7 @@ static int emit_object(
             PROTECT(s_elt = VECTOR_ELT(s_obj, j));
             PROTECT(s_tmp = Ryaml_yoink(s_elt, i));
             result = emit_object(emitter, event, s_tmp, omap, column_major,
-                precision, s_handlers);
+                precision, indent_mapping_sequence, s_handlers);
             UNPROTECT(2);
 
             if (!result) {
@@ -744,7 +748,7 @@ static int emit_object(
 
           PROTECT(s_elt = VECTOR_ELT(s_obj, i));
           result = emit_object(emitter, event, s_elt, omap, column_major,
-              precision, s_handlers);
+              precision, indent_mapping_sequence, s_handlers);
           UNPROTECT(1);
 
           if (result && omap) {
@@ -782,7 +786,7 @@ static int emit_object(
         for (i = 0; i < length(s_obj); i++) {
           PROTECT(s_elt = VECTOR_ELT(s_obj, i));
           result = emit_object(emitter, event, s_elt, omap, column_major,
-              precision, s_handlers);
+              precision, indent_mapping_sequence, s_handlers);
           UNPROTECT(1);
 
           if (!result) {
@@ -929,7 +933,7 @@ SEXP Ryaml_serialize_to_yaml(
   if (!status)
     goto done;
 
-  status = emit_object(&emitter, &event, s_obj, omap, column_major, precision, s_handlers);
+  status = emit_object(&emitter, &event, s_obj, omap, column_major, precision, indent_mapping_sequence, s_handlers);
   if (!status)
     goto done;
 

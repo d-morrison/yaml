@@ -479,3 +479,40 @@ test_that("no dots at end", {
   result <- yaml::as.yaml(list(eol = "\n", a = 1), line.sep = "\n")
   expect_equal(result, "eol: |2+\n\na: 1.0\n")
 })
+
+test_that("roundtrip preserves single-element sequences with indent.mapping.sequence", {
+  temp <- "website:
+  sidebar:
+    contents:
+      - section: Articles
+        contents:
+          - vignettes/getting-started.qmd
+          - vignettes/quarto_vignette.qmd
+          - section: Advanced
+            contents:
+              - vignettes/articles/quarto_article.qmd
+"
+  
+  temp2 <- temp |>
+    yaml.load() |>
+    as.yaml(
+      indent.mapping.sequence = TRUE,
+      handler = list(logical = verbatim_logical)
+    )
+  
+  # Both should have the same YAML structure
+  expect_equal(temp2, temp)
+})
+
+test_that("indent.mapping.sequence preserves single element vectors as sequences", {
+  # With indent.mapping.sequence = TRUE, single-element vectors should be sequences
+  x <- list(foo = list(bar = "item"))
+  result <- as.yaml(x, indent.mapping.sequence = TRUE)
+  # Should be a sequence with one element, not a scalar
+  expect_equal(result, "foo:\n  bar:\n    - item\n")
+  
+  # With indent.mapping.sequence = FALSE (default), single-element should be scalar
+  result2 <- as.yaml(x, indent.mapping.sequence = FALSE)
+  expect_equal(result2, "foo:\n  bar: item\n")
+})
+
